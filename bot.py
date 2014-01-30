@@ -1,23 +1,21 @@
-import PRAW
+import praw
 
-shitlords = []
-file = open("data", "w")
-for line in file:
+class User:
+    def __init__(self, n, p = 100, o = 0):
+        self.name = n
+        self.privilege = p
+        self.points = o
+        return
+
+    def __repr__(self):
+         return self.name + ", Privilege: " + str(self.privilege) + ", Points: " + str(self.points)
+    
+records = open("data", "r+")
+users = {}
+
+for line in records:
     s = line.split()
-    shitlords.add(Shitlord(s[0], int(s[1]), int(s[2]))
-    
-print shitlords
+    users[s[0]] = User(s[0], int(s[1]), int(s[2]))
 
-class Shitlord:
-    def __init__(n, p = 100, o = 0):
-        name = n
-        privilege = p
-        oppressionPoints = 0
-        
-    def __str__():
-        print "/u/" + name + ", Privilege: " + privilege + ", Oppression: " + oppression
-    
-    def setPrivilege(p):
-        privilege = p
-        
-    def giveOppression
+print users
+
